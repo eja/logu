@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGU</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="https://github.com/eja/logu" target="_blank" class="help-link" aria-label="Help">?</a>
+
+    <div class="game-container">
+        
+        <header class="header">
+            <h1 class="main-title">LOGU</h1>
+        </header>
+
+        <div id="board" class="board"></div>
+
+        <div class="sidebar">
+            
+            <div class="panel controls">
+                <select id="faction-select" class="select-field">
+                    <option value="TAZ">TAZ</option>
+                    <option value="MEGA">MEGA</option>
+                </select>
+
+                <div class="score-group">
+                    <span class="taz score-text">⬢ <span id="payloads-delivered">0/1</span></span>
+                    <span class="mega score-text">⚠ <span id="payloads-intercepted">0/2</span></span>
+                </div>
+                
+                <div class="action-group">
+                    <button id="action-btn" class="btn primary compact" disabled>INIT</button>
+                    <button id="reset-btn" class="btn compact">RESET</button>
+                </div>
+            </div>
+
+            <div id="status-message" class="status">SYS: STANDBY</div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
