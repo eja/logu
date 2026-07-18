@@ -6,7 +6,7 @@
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="Logu"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+        android:theme="@android:style/Theme.DeviceDefault.NoActionBar.Fullscreen"
         android:usesCleartextTraffic="true">
 
         <activity
