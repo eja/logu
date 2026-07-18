@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>LOGU</title>
+ <link rel="stylesheet" href="style.css">
+ <script src="marked.js"></script>
+</head>
+<body>
+
+ <a href="#" class="help-link" aria-label="Help">?</a>
+
+ <div id="info-modal" class="modal">
+  <div class="modal-content">
+   <button id="close-modal" class="close-btn">&times;</button>
+   <div id="readme-display">Loading...</div>
+  </div>
+ </div>
+
+ <div class="game-container">
+  <header class="header">
+   <h1 class="main-title">LOGU</h1>
+  </header>
+
+  <div id="board" class="board"></div>
+
+  <div class="sidebar">
+   <div class="panel controls">
+    <select id="faction-select" class="select-field">
+     <option value="TAZ">TAZ</option>
+     <option value="MEGA">MEGA</option>
+    </select>
+
+    <div class="score-group">
+     <span class="taz score-text">⬢ <span id="payloads-delivered">0/1</span></span>
+     <span class="mega score-text">⚠ <span id="payloads-intercepted">0/2</span></span>
+    </div>
+
+    <div class="action-group">
+     <button id="action-btn" class="btn primary compact" disabled>INIT</button>
+     <button id="reset-btn" class="btn compact">RESET</button>
+    </div>
+   </div>
+
+   <div id="status-message" class="status">SYS: STANDBY</div>
+  </div>
+ </div>
+
+ <script src="script.js"></script>
+ <script>
+  const helpLink = document.querySelector('.help-link');
+  const modal = document.getElementById('info-modal');
+  const closeBtn = document.getElementById('close-modal');
+  const readmeDisplay = document.getElementById('readme-display');
+
+  helpLink.addEventListener('click', async (e) => {
+    e.preventDefault();
+    modal.style.display = 'block';
+
+    if (!readmeDisplay.dataset.loaded) {
+      try {
+        const res = await fetch('README.md');
+        const text = await res.text();
+        readmeDisplay.innerHTML = marked.parse(text);
+        readmeDisplay.dataset.loaded = "true";
+      } catch (err) {
+        readmeDisplay.innerHTML = "Error loading documentation.";
+      }
+    }
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) modal.style.display = 'none';
+  });
+ </script>
+</body>
+</html>
