@@ -224,3 +224,58 @@ body {
     margin-top: 6px;
     color: var(--text-muted);
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--bg-color);
+    color: var(--text-primary);
+    margin: 5vh auto; 
+    padding: 40px;
+    width: 80%; 
+    max-width: 800px;
+    height: 80vh; 
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: none; 
+    border: none;
+    color: var(--text-primary); 
+    font-size: 2rem; 
+    cursor: pointer;
+}
+
+/* Markdown Rendering Styles */
+#readme-display { 
+    line-height: 1.6; 
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+#readme-display h1, #readme-display h3 { 
+    margin-top: 24px;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+#readme-display ul { margin-left: 20px; margin-bottom: 16px; }
+#readme-display li { margin-bottom: 8px; }
+#readme-display p { margin-bottom: 16px; }
+#readme-display hr { border: 0; border-top: 1px solid var(--border-color); margin: 24px 0; }
+#readme-display code { background: var(--panel-bg); padding: 2px 4px; border-radius: 4px; font-family: monospace; }
