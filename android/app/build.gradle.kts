@@ -5,14 +5,14 @@ plugins {
 
 android {
     namespace = "it.eja.logu"
-    compileSdk = 34
+    compileSdk = 25
 
     defaultConfig {
         applicationId = "it.eja.logu"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "0.7.18"
+        targetSdk = 25
+        versionCode = 2
+        versionName = "0.7.19"
     }
 
     buildTypes {
